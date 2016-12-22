@@ -14,4 +14,42 @@
     tools:context="be.yannickvanhecke.activities.activity_activity2"
     tools:showIn="@layout/activity_activity2">
 
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_activity_activity2"/>
+
+    <TextView android:id="@+id/create"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/onCreate"
+        android:layout_below="@+id/txtTitle"/>
+
+    <TextView android:id="@+id/start"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/onStart"
+        android:layout_below="@id/create"/>
+
+    <TextView android:id="@+id/resume"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/onResume"
+        android:layout_below="@id/start"/>
+
+    <TextView android:id="@+id/restart"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/onRestart"
+              android:layout_below="@id/resume"/>
+
+    <Button android:id="@+id/bClose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/close"
+            android:layout_below="@id/restart"
+        />
+
+
 </RelativeLayout>
