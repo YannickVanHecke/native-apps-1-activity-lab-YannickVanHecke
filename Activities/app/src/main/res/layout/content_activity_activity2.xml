@@ -20,35 +20,35 @@
         android:layout_height="wrap_content"
         android:text="@string/title_activity_activity2"/>
 
-    <TextView android:id="@+id/create"
+    <TextView android:id="@+id/txtcreate"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="@string/onCreate"
         android:layout_below="@+id/txtTitle"/>
 
-    <TextView android:id="@+id/start"
+    <TextView android:id="@+id/txtstart"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="@string/onStart"
-        android:layout_below="@id/create"/>
+        android:layout_below="@id/txtcreate"/>
 
-    <TextView android:id="@+id/resume"
+    <TextView android:id="@+id/txtresume"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="@string/onResume"
-        android:layout_below="@id/start"/>
+        android:layout_below="@id/txtstart"/>
 
-    <TextView android:id="@+id/restart"
+    <TextView android:id="@+id/txtrestart"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="@string/onRestart"
-              android:layout_below="@id/resume"/>
+              android:layout_below="@id/txtresume"/>
 
     <Button android:id="@+id/bClose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/close"
-            android:layout_below="@id/restart"
+            android:layout_below="@id/txtrestart"
         />
 
 
