@@ -14,42 +14,62 @@
     tools:context="be.yannickvanhecke.activities.activity_activity2"
     tools:showIn="@layout/activity_activity2">
 
-    <TextView
-        android:id="@+id/txtTitle"
+    <TextView android:id="@+id/txttitleactivitytwo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/title_activity_activity2"/>
 
-    <TextView android:id="@+id/txtcreate"
+    <TextView android:id="@+id/txtoncreateactivitytwo"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="@string/onCreate"
-        android:layout_below="@+id/txtTitle"/>
+              android:layout_below="@id/txttitleactivitytwo"/>
 
-    <TextView android:id="@+id/txtstart"
+    <TextView android:id="@+id/txtondestroyactivitytwo"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:text="@string/onStart"
-        android:layout_below="@id/txtcreate"/>
+              android:text="@string/onDestroy"
+              android:layout_below="@id/txtoncreateactivitytwo"/>
 
-    <TextView android:id="@+id/txtresume"
+    <TextView android:id="@+id/txtonpauseactivitytwo"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:text="@string/onResume"
-        android:layout_below="@id/txtstart"/>
+              android:text="@string/onPause"
+              android:layout_below="@id/txtondestroyactivitytwo"/>
 
-    <TextView android:id="@+id/txtrestart"
+    <TextView android:id="@+id/txtonrestartactivitytwo"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="@string/onRestart"
-              android:layout_below="@id/txtresume"/>
+              android:layout_below="@id/txtonpauseactivitytwo"/>
 
-    <Button android:id="@+id/bClose"
+    <TextView android:id="@+id/txtonresumeactivitytwo"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/onResume"
+              android:layout_below="@id/txtonrestartactivitytwo"/>
+
+    <TextView android:id="@+id/txtonstartactivitytwo"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/onStart"
+              android:layout_below="@+id/txtonresumeactivitytwo"
+              />
+
+    <TextView android:id="@+id/txtonstopactivitytwo"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/onStop"
+              android:layout_below="@id/txtonstartactivitytwo"
+              />
+
+    <Button android:id="@+id/btnCloseActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/close"
-            android:layout_below="@id/txtrestart"
-        />
+            android:text="@string/closeActivityTwo"
+            android:layout_below="@id/txtonstopactivitytwo"
+            />
+
 
 
 </RelativeLayout>

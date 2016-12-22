@@ -5,7 +5,10 @@
     <string name="onCreate">onCreate :</string>
     <string name="onStart">onStart :</string>
     <string name="onResume">onResume :</string>
+    <string name="onPause">onPause :</string>
+    <string name="onStop">onStop :</string>
     <string name="onRestart">onRestart :</string>
-    <string name="close">Close</string>
-    <string name="button">Start activity two</string>
+    <string name="onDestroy">onDestroy :</string>
+    <string name="closeActivityTwo">Close activity two</string>
+    <string name="startActivityTwo">Start activity two</string>
 </resources>
