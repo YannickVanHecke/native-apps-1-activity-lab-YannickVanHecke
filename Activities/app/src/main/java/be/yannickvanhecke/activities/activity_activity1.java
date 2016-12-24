@@ -19,6 +19,7 @@ import org.w3c.dom.Text;
 import be.yannickvanhecke.activities.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class activity_activity1 extends AppCompatActivity
 {
@@ -27,14 +28,7 @@ public class activity_activity1 extends AppCompatActivity
     /**
      * TODO: Create counter variables for onCreate(), onRestart(), onStart() and onResume() etc which you increment with every method call
      */
-    private int onCreateCounter = 0;
-    private int onDestroyCounter = 0;
-    private int onPauseCounter = 0;
-    private int onRestartCounter = 0;
-    private int onResumeCounter = 0;
-    private int onStartCounter = 0;
-    private int onStopCounter = 0;
-
+    private int[] counters = {0, 0, 0, 0, 0, 0, 0};
 
 
     /**
@@ -55,42 +49,51 @@ public class activity_activity1 extends AppCompatActivity
     @BindView(R.id.txtonstopactivityone)
     TextView txtOnStop;
 
-    @BindView(R.id.btnLaunchActivityTwo)
+    @BindView(R.id.btnStartActivityTwo)
     Button btnLaunchActivityTwo;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
 
-
+    @OnClick(R.id.btnStartActivityTwo)
+    public void LaunchActivityTwo(){
+        Intent intent = new Intent(this, activity_activity2.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity1);
         // TODO: Initialize textviews
         // Hint: findViewById()
         ButterKnife.bind(this);
         //TODO: Add a Onclicklistener to the button to start a new activity
-        final Intent intent = new Intent(this, activity_activity2.class);
-        btnLaunchActivityTwo.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                startActivity(intent);
-            }
-        });
+
+
 
         // TODO: Check saved state
         if (savedInstanceState != null) {
             // TODO: Recover counter values from saved state
-
+            this.counters[R.integer.onCreatePosition] = savedInstanceState.getInt(getResources().getString(R.string.savedInstanceStateKeyOnCreateCounterActivityOne));
+            this.counters[R.integer.onDestroyPosition] = savedInstanceState.getInt(getResources().getString(R.string.savedInstanceStateKeyOnDestroyCounterActivityOne));
+            this.counters[R.integer.onPausePosition] = savedInstanceState.getInt(getResources().getString(R.string.savedInstanceStateKeyOnPauseCounterActivityOne));
+            this.counters[R.integer.onRestartPosition] = savedInstanceState.getInt(getResources().getString(R.string.savedInstanceStateKeyOnRestartCounterActivityOne));
+            this.counters[R.integer.onResumePosition] = savedInstanceState.getInt(getResources().getString(R.string.savedInstanceStateKeyOnResumeCounterActivityOne));
+            this.counters[R.integer.onStartPosition] = savedInstanceState.getInt(getResources().getString(R.string.savedInstanceStateKeyOnStartCounterActivityOne));
+            this.counters[R.integer.onStopPosition] = savedInstanceState.getInt(getResources().getString(R.string.savedInstanceStateKeyOnStopCounterActivityOne));
         }
         // TODO: LogCat message
-        // TODO: Update user interface using the displayCounts() method
+        Log.i("onCreateCounter", String.format("%d", this.counters[getResources().getInteger(R.integer.onCreatePosition)]));
 
+        // TODO: Update count variable
+        this.updateCounts(getResources().getInteger(R.integer.onCreatePosition));
+
+        // TODO: Update user interface using the displayCounts() method
+        this.displayCounts();
     }
 
     @Override
@@ -98,8 +101,12 @@ public class activity_activity1 extends AppCompatActivity
     {
         super.onStart();
         // TODO: LogCat message
+        Log.i("onStartCounter", String.format("%d", this.counters[getResources().getInteger(R.integer.onStartPosition)]));
         // TODO: Update count variable
+        
+        this.updateCounts(getResources().getInteger(R.integer.onStartPosition));
         // TODO: Update the user interface
+        this.displayCounts();
     }
 
     @Override
@@ -107,8 +114,11 @@ public class activity_activity1 extends AppCompatActivity
     {
         super.onResume();
         // TODO: LogCat message
+        Log.i("onResumeCounter", String.format("%d", this.counters[getResources().getInteger(R.integer.onResumePosition)]));
         // TODO: Update the  count variable
+        this.updateCounts(getResources().getInteger(R.integer.onResumePosition));
         // TODO: Update the user interface
+        this.displayCounts();
     }
 
     @Override
@@ -116,8 +126,11 @@ public class activity_activity1 extends AppCompatActivity
     {
         super.onPause();
         // TODO: LogCat message
+        Log.i("onPauseCounter", String.format("%d", this.counters[getResources().getInteger(R.integer.onPausePosition)]));
         // TODO: Update the  count variable
+        this.updateCounts(getResources().getInteger(R.integer.onPausePosition));
         // TODO: Update the user interface
+        this.displayCounts();
     }
 
     @Override
@@ -125,8 +138,11 @@ public class activity_activity1 extends AppCompatActivity
     {
         super.onStop();
         // TODO: LogCat message
+        Log.i("onStopCounter", String.format("%d", this.counters[getResources().getInteger(R.integer.onStopPosition)]));
         // TODO: Update the  count variable
+        this.updateCounts(getResources().getInteger(R.integer.onStopPosition));
         // TODO: Update the user interface
+        this.displayCounts();
     }
 
     @Override
@@ -134,8 +150,11 @@ public class activity_activity1 extends AppCompatActivity
     {
         super.onRestart();
         // TODO: LogCat message
+        Log.i("onRestartCounter", String.format("%d", this.counters[getResources().getInteger(R.integer.onRestartPosition)]));
         // TODO: Update the  count variable
+        this.updateCounts(getResources().getInteger(R.integer.onRestartPosition));
         // TODO: Update the user interface
+        this.displayCounts();
     }
 
     @Override
@@ -143,20 +162,44 @@ public class activity_activity1 extends AppCompatActivity
     {
         super.onDestroy();
         // TODO: LogCat message
+        Log.i("onDestroyCounter", String.format("%d", this.counters[getResources().getInteger(R.integer.onDestroyPosition)]));
         // TODO: Update the  count variable
+        this.updateCounts(getResources().getInteger(R.integer.onDestroyPosition));
         // TODO: Update the user interface
+        this.displayCounts();
     }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState)
     {
-        // TODO:  Save the state  using key-value pairs in the Bundle
+        // TODO:  Save the state using key-value pairs in the Bundle
+        savedInstanceState.putInt(getResources().getString(R.string.savedInstanceStateKeyOnCreateCounterActivityOne), this.counters[getResources().getInteger(R.integer.onCreatePosition)]);
+        savedInstanceState.putInt(getResources().getString(R.string.savedInstanceStateKeyOnStartCounterActivityOne), this.counters[getResources().getInteger(R.integer.onStartPosition)]);
+        savedInstanceState.putInt(getResources().getString(R.string.savedInstanceStateKeyOnPauseCounterActivityOne), this.counters[getResources().getInteger(R.integer.onPausePosition)]);
+        savedInstanceState.putInt(getResources().getString(R.string.savedInstanceStateKeyOnResumeCounterActivityOne), this.counters[getResources().getInteger(R.integer.onResumePosition)]);
+        savedInstanceState.putInt(getResources().getString(R.string.savedInstanceStateKeyOnStopCounterActivityOne), this.counters[getResources().getInteger(R.integer.onStopPosition)]);
+        savedInstanceState.putInt(getResources().getString(R.string.savedInstanceStateKeyOnRestartCounterActivityOne), this.counters[getResources().getInteger(R.integer.onRestartPosition)]);
+        savedInstanceState.putInt(getResources().getString(R.string.savedInstanceStateKeyOnDestroyCounterActivityOne), this.counters[getResources().getInteger(R.integer.onDestroyPosition)]);
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    // Updates the counters
+    public void updateCounts(int position){
+        this.counters[position]++;
+
     }
 
     // Updates de  counters
     public void displayCounts()
     {
         // TODO: show the countervariables in the interface
+        txtOnCreate.setText(String.format("%s: %d", getResources().getString(R.string.onCreate), this.counters[getResources().getInteger(R.integer.onCreatePosition)]));
+        txtOnDestroy.setText(String.format("%s: %d", getResources().getString(R.string.onDestroy), this.counters[getResources().getInteger(R.integer.onDestroyPosition)]));
+        txtOnPause.setText(String.format("%s: %d", getResources().getString(R.string.onPause), this.counters[getResources().getInteger(R.integer.onPausePosition)]));
+        txtOnResume.setText(String.format("%s: %d", getResources().getString(R.string.onResume), this.counters[getResources().getInteger(R.integer.onResumePosition)]));
+        txtOnRestart.setText(String.format("%s: %d", getResources().getString(R.string.onRestart), this.counters[getResources().getInteger(R.integer.onRestartPosition)]));
+        txtOnStart.setText(String.format("%s: %d", getResources().getString(R.string.onStart), this.counters[getResources().getInteger(R.integer.onStartPosition)]));
+        txtOnStop.setText(String.format("%s, %d", getResources().getString(R.string.onStop), this.counters[getResources().getInteger(R.integer.onStopPosition)]));
     }
 
 }

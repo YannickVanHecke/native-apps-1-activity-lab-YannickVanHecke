@@ -12,7 +12,7 @@
     <TextView android:id="@+id/txttitleactivityone"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:text="@string/title_activity_activity2"/>
+              android:text="@string/title_activity_activity1"/>
 
     <TextView android:id="@+id/txtoncreateactivityone"
               android:layout_width="match_parent"
@@ -55,7 +55,14 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="@string/onStop"
-              android:layout_below="@id/txtonstartactivityonesss"
+              android:layout_below="@id/txtonstartactivityone"
+        />
+
+    <Button android:id="@+id/btnStartActivityTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/startActivityTwo"
+            android:layout_below="@id/txtonstopactivityone"
         />
 
 
