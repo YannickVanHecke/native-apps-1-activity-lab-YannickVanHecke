@@ -1,4 +1,32 @@
 <resources>
     <string name="app_name">Activities</string>
     <string name="title_activity_activity2">activity_activity2</string>
+    <string name="title_activity_activity1">activity_activity1</string>
+
+    <string name="onCreate">onCreate :</string>
+    <string name="onStart">onStart :</string>
+    <string name="onResume">onResume :</string>
+    <string name="onPause">onPause :</string>
+    <string name="onStop">onStop :</string>
+    <string name="onRestart">onRestart :</string>
+    <string name="onDestroy">onDestroy :</string>
+
+    <string name="closeActivityTwo">Close activity two</string>
+    <string name="startActivityTwo">Start activity two</string>
+
+    <string name="savedInstanceStateKeyOnCreateCounterActivityOne">onCreateCounterActivityOne</string>
+    <string name="savedInstanceStateKeyOnDestroyCounterActivityOne">onDestroyCounterActivityOne</string>
+    <string name="savedInstanceStateKeyOnPauseCounterActivityOne">onPauseCounterActivityOne</string>
+    <string name="savedInstanceStateKeyOnRestartCounterActivityOne">onRestartCounterActivityOne</string>
+    <string name="savedInstanceStateKeyOnResumeCounterActivityOne">onResumeCounterActivityOne</string>
+    <string name="savedInstanceStateKeyOnStartCounterActivityOne">onStartCounterActivityOne</string>
+    <string name="savedInstanceStateKeyOnStopCounterActivityOne">onStopCounterActivityOne</string>
+
+    <string name="savedInstanceStateKeyOnCreateCounterActivityTwo">onCreateCounterActivityTwo</string>
+    <string name="savedInstanceStateKeyOnDestroyCounterActivityTwo">onDestroyCounterActivityTwo</string>
+    <string name="savedInstanceStateKeyOnPauseCounterActivityTwo">onPauseCounterActivityTwo</string>
+    <string name="savedInstanceStateKeyOnRestartCounterActivityTwo">onRestartCounterActivityTwo</string>
+    <string name="savedInstanceStateKeyOnResumeCounterActivityTwo">onResumeCounterActivityTwo</string>
+    <string name="savedInstanceStateKeyOnStartCounterActivityTwo">onStartCounterActivityTwo</string>
+    <string name="savedInstanceStateKeyOnStopCounterActivityTwo">onStopCounterActivityTwo</string>
 </resources>
