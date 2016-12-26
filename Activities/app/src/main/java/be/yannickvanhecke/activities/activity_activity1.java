@@ -1,6 +1,7 @@
 package be.yannickvanhecke.activities;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -78,13 +79,15 @@ public class activity_activity1 extends AppCompatActivity
         // TODO: Check saved state
         if (savedInstanceState != null) {
             // TODO: Recover counter values from saved state
-            this.counters[R.integer.onCreatePosition] = savedInstanceState.getInt(getResources().getString(R.string.savedInstanceStateKeyOnCreateCounterActivityOne));
-            this.counters[R.integer.onDestroyPosition] = savedInstanceState.getInt(getResources().getString(R.string.savedInstanceStateKeyOnDestroyCounterActivityOne));
-            this.counters[R.integer.onPausePosition] = savedInstanceState.getInt(getResources().getString(R.string.savedInstanceStateKeyOnPauseCounterActivityOne));
-            this.counters[R.integer.onRestartPosition] = savedInstanceState.getInt(getResources().getString(R.string.savedInstanceStateKeyOnRestartCounterActivityOne));
-            this.counters[R.integer.onResumePosition] = savedInstanceState.getInt(getResources().getString(R.string.savedInstanceStateKeyOnResumeCounterActivityOne));
-            this.counters[R.integer.onStartPosition] = savedInstanceState.getInt(getResources().getString(R.string.savedInstanceStateKeyOnStartCounterActivityOne));
-            this.counters[R.integer.onStopPosition] = savedInstanceState.getInt(getResources().getString(R.string.savedInstanceStateKeyOnStopCounterActivityOne));
+            SharedPreferences sharedPreferences = this.getPreferences(MODE_PRIVATE);
+
+            this.counters[R.integer.onCreatePosition] = sharedPreferences.getInt(getResources().getString(R.string.savedInstanceStateKeyOnCreateCounterActivityOne), 0);
+            this.counters[R.integer.onDestroyPosition] = sharedPreferences.getInt(getResources().getString(R.string.savedInstanceStateKeyOnDestroyCounterActivityOne), 0);
+            this.counters[R.integer.onPausePosition] = sharedPreferences.getInt(getResources().getString(R.string.savedInstanceStateKeyOnPauseCounterActivityOne), 0);
+            this.counters[R.integer.onRestartPosition] = sharedPreferences.getInt(getResources().getString(R.string.savedInstanceStateKeyOnRestartCounterActivityOne),0);
+            this.counters[R.integer.onResumePosition] = sharedPreferences.getInt(getResources().getString(R.string.savedInstanceStateKeyOnResumeCounterActivityOne),0);
+            this.counters[R.integer.onStartPosition] = sharedPreferences.getInt(getResources().getString(R.string.savedInstanceStateKeyOnStartCounterActivityOne),0);
+            this.counters[R.integer.onStopPosition] = sharedPreferences.getInt(getResources().getString(R.string.savedInstanceStateKeyOnStopCounterActivityOne),0);
         }
         // TODO: LogCat message
         Log.i("onCreateCounter", String.format("%d", this.counters[getResources().getInteger(R.integer.onCreatePosition)]));
@@ -173,13 +176,15 @@ public class activity_activity1 extends AppCompatActivity
     public void onSaveInstanceState(Bundle savedInstanceState)
     {
         // TODO:  Save the state using key-value pairs in the Bundle
-        savedInstanceState.putInt(getResources().getString(R.string.savedInstanceStateKeyOnCreateCounterActivityOne), this.counters[getResources().getInteger(R.integer.onCreatePosition)]);
-        savedInstanceState.putInt(getResources().getString(R.string.savedInstanceStateKeyOnStartCounterActivityOne), this.counters[getResources().getInteger(R.integer.onStartPosition)]);
-        savedInstanceState.putInt(getResources().getString(R.string.savedInstanceStateKeyOnPauseCounterActivityOne), this.counters[getResources().getInteger(R.integer.onPausePosition)]);
-        savedInstanceState.putInt(getResources().getString(R.string.savedInstanceStateKeyOnResumeCounterActivityOne), this.counters[getResources().getInteger(R.integer.onResumePosition)]);
-        savedInstanceState.putInt(getResources().getString(R.string.savedInstanceStateKeyOnStopCounterActivityOne), this.counters[getResources().getInteger(R.integer.onStopPosition)]);
-        savedInstanceState.putInt(getResources().getString(R.string.savedInstanceStateKeyOnRestartCounterActivityOne), this.counters[getResources().getInteger(R.integer.onRestartPosition)]);
-        savedInstanceState.putInt(getResources().getString(R.string.savedInstanceStateKeyOnDestroyCounterActivityOne), this.counters[getResources().getInteger(R.integer.onDestroyPosition)]);
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+        sharedPreferences.edit().putInt(getResources().getString(R.string.savedInstanceStateKeyOnCreateCounterActivityOne), this.counters[getResources().getInteger(R.integer.onCreatePosition)]);
+        sharedPreferences.edit().putInt(getResources().getString(R.string.savedInstanceStateKeyOnStartCounterActivityOne), this.counters[getResources().getInteger(R.integer.onStartPosition)]);
+        sharedPreferences.edit().putInt(getResources().getString(R.string.savedInstanceStateKeyOnPauseCounterActivityOne), this.counters[getResources().getInteger(R.integer.onPausePosition)]);
+        sharedPreferences.edit().putInt(getResources().getString(R.string.savedInstanceStateKeyOnResumeCounterActivityOne), this.counters[getResources().getInteger(R.integer.onResumePosition)]);
+        sharedPreferences.edit().putInt(getResources().getString(R.string.savedInstanceStateKeyOnStopCounterActivityOne), this.counters[getResources().getInteger(R.integer.onStopPosition)]);
+        sharedPreferences.edit().putInt(getResources().getString(R.string.savedInstanceStateKeyOnRestartCounterActivityOne), this.counters[getResources().getInteger(R.integer.onRestartPosition)]);
+        sharedPreferences.edit().putInt(getResources().getString(R.string.savedInstanceStateKeyOnDestroyCounterActivityOne), this.counters[getResources().getInteger(R.integer.onDestroyPosition)]);
+        sharedPreferences.edit().commit();
         super.onSaveInstanceState(savedInstanceState);
     }
 
