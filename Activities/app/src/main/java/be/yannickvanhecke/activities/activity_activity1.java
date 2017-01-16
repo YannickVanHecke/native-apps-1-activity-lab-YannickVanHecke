@@ -31,6 +31,15 @@ public class activity_activity1 extends AppCompatActivity
      */
     private int[] counters = {0, 0, 0, 0, 0, 0, 0};
 
+    //<integer name="onCreatePosition">0</integer>
+    //<integer name="onDestroyPosition">1</integer>
+    //<integer name="onPausePosition">2</integer>
+    //<integer name="onRestartPosition">3</integer>
+    //<integer name="onResumePosition">4</integer>
+    //<integer name="onStartPosition">5</integer>
+    //<integer name="onStopPosition">6</integer>
+    public int getOnCreateCounter(){return this.counters[getResources().getInteger(R.integer.onCreatePosition)];}
+
 
     /**
      * TODO: Creëer variabelen voor de verschillende textviews
