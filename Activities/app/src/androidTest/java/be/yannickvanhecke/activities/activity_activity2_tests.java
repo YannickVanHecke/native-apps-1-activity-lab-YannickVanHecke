@@ -24,24 +24,24 @@ import static junit.framework.Assert.assertTrue;
  */
 
 @RunWith(AndroidJUnit4.class)
-public class activity_activity1_tests
+public class activity_activity2_tests
 {
     @Rule
-    public ActivityTestRule<activity_activity1> activity_activity1ActivityTestRule = new ActivityTestRule<activity_activity1>(activity_activity1.class);
+    public ActivityTestRule<activity_activity2> activity_activity1ActivityTestRule = new ActivityTestRule<activity_activity2>(activity_activity2.class);
 
     @Test
     public void testToSeeWhetherPressingAButtonOpensTheNewActivityCorrectly(){
-        onView(withId(R.id.btnStartActivityTwo)).perform(click());
+        onView(withId(R.id.btnCloseActivity)).perform(click());
         Activity activity = getActivityInstance();
-        assertTrue(activity instanceof activity_activity2);
+        assertTrue(activity instanceof activity_activity1);
     }
 
     @Test
     public void testToCheckOneOfTheParametersYouAreTestingEGOnStartMethode(){
         Activity activity = getActivityInstance();
-        if (activity instanceof  activity_activity1) {
-            activity_activity1 activity_activity1 = (be.yannickvanhecke.activities.activity_activity1) activity;
-            assertEquals(1, activity_activity1.getOnStartCounter());
+        if (activity instanceof  activity_activity2) {
+            activity_activity2 activity_activity2 = (be.yannickvanhecke.activities.activity_activity2) activity;
+            assertEquals(1, activity_activity2.getOnStartCounter());
         }
     }
 

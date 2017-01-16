@@ -29,6 +29,14 @@ public class activity_activity2 extends AppCompatActivity
      */
     private int[] counters = {0, 0, 0, 0, 0, 0, 0};
 
+    public int getOnCreateCounter(){return this.counters[getResources().getInteger(R.integer.onCreatePosition)];}
+    public int getOnDestroyCounter(){return this.counters[getResources().getInteger(R.integer.onDestroyPosition)];}
+    public int getOnPauseCounter(){return this.counters[getResources().getInteger(R.integer.onPausePosition)];}
+    public int getonRestartCounter(){return this.counters[getResources().getInteger(R.integer.onRestartPosition)];}
+    public int getonResumeCounter(){return this.counters[getResources().getInteger(R.integer.onResumePosition)];}
+    public int getOnStartCounter(){return this.counters[getResources().getInteger(R.integer.onStartPosition)];}
+    public int getOnStopCounter(){return this.counters[getResources().getInteger(R.integer.onStopPosition)];}
+
 
     /**
      * TODO: Creëer variabelen voor de verschillende textviews
